@@ -8,10 +8,18 @@ before_script:
    - pwd
 
 script:
-   - sudo ./build.sh
+   - sudo ./build2.sh
 
 after_script:
    - echo "done"
+
+deploy:
+   provider: releases
+   api_key: "GITHUB OAUTH TOKEN"
+   file: "~/ct-ubuntu/output/uEnv.txt"
+   skip_cleanup: true
+   on:
+      tags: true
 
 notifications:
    email:
