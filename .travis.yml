@@ -9,7 +9,7 @@ before_script:
    - pwd
 
 script:
-   - ./build.sh
+   - sudo ./build.sh
 
 after_script:
    - echo "done"
