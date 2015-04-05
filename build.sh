@@ -3,7 +3,7 @@
 # --- Configuration -------------------------------------------------------------
 # Change to your needs
 VERSION="ct-ubuntu-0.1"
-COMPILE="true"
+COMPILE="false"
 DEST=~/ct-ubuntu
 DISPLAY=3 # "3:hdmi; 4:vga"
 
@@ -142,6 +142,7 @@ cd $DEST/output
 # create 2GB image and mount image to next free loop device
 dd if=/dev/zero of=ct-ubuntu.raw bs=1M count=2000
 LOOP0=$(losetup -f)
+echo "LOOP0=${LOOP0}"
 losetup $LOOP0 ct-ubuntu.raw 
 
 echo "------ Partitionning and Mounting filesystem"
