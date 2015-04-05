@@ -16,7 +16,7 @@ after_script:
 deploy:
    provider: releases
    api_key: "GITHUB OAUTH TOKEN"
-   file: "~/ct-ubuntu/output/uEnv.txt"
+   file: "artifact.txt"
    skip_cleanup: true
    on:
       tags: true
