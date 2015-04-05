@@ -203,6 +203,8 @@ chmod +x $DEST/output/sdcard/root/sata-install.sh
 
 echo "------ Configuring Hostname"
 echo $HOSTNAME > $DEST/output/sdcard/etc/hostname
+echo -e "127.0.0.1\tlocalhost" > $DEST/output/sdcard/etc/hosts
+echo -e "127.0.0.1\t$HOSTNAME" > $DEST/output/sdcard/etc/hosts
 
 echo "------ Script to install and configure locales"
 echo LANG='$DEST_LANG'.UTF-8 > $DEST/output/sdcard/etc/default.conf
@@ -310,3 +312,4 @@ echo "------ Image is ready!"
 #gzip $DEST/output/*.raw
 echo "use: dd bs=1M if=ct-ubuntu.raw of=dev/sdx;sync"
 ls $DEST/output/*.raw
+md5sum *.raw

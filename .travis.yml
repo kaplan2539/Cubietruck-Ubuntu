@@ -1,0 +1,21 @@
+language: cpp
+
+before_install:
+   - uname -a
+   - cat /etc/issue
+   - pwd
+
+before_script:
+   - pwd
+
+script:
+   - ./build.sh
+
+after_script:
+   - echo "done"
+
+notifications:
+   email:
+      - kaplan2539@gmail.com
+   on_success: change
+   on_failure: always
