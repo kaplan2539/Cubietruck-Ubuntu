@@ -16,12 +16,13 @@ before_deploy:
   - pwd
   - ls -ltra
   - git fetch --tags
+  - sudo chown travis:travis artifact.txt
 
 deploy:
   provider: releases
   api_key:
     secure: hcNm8lVfoi9t1UjZsPeBVqO6ckfAhWQkpGKRj/K0VepFvODBpgVBdHwpLdkd9GL7VMxW4vAAz2olksmXj6m0lyCIgj0/+UR59pjoS5lZRvxuQ34dQnx5YXvgkkA4nSlyoi716C+UR0guEmK8Qecu3FT8Vt1Z/8DwXAzsb3EOj+g=
-  file: build2.sh
+  file: artifact.txt
   skip_cleanup: true
   on:
     repo: kaplan2539/Cubietruck-Ubuntu
