@@ -1,28 +1,21 @@
 language: cpp
-
-before_install:
-   #- sudo apt-get update
-   #   - sudo apt-get -qq -y install binfmt-support bison build-essential ccache debootstrap flex gawk gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf gettext linux-headers-generic linux-image-generic lvm2 qemu-user-static texinfo texlive u-boot-tools uuid-dev zlib1g-dev unzip libncurses5-dev pkg-config libusb-1.0-0-dev
-
+before_install: 
 before_script:
-   - pwd
-
+- pwd
 script:
-   - sudo ./build2.sh
-
+- sudo ./build2.sh
 after_script:
-   - echo "done"
+- echo "done"
+notifications:
+  email:
+  - kaplan2539@gmail.com
+  on_success: change
+  on_failure: always
 
 deploy:
-   provider: releases
-   api_key: "GITHUB OAUTH TOKEN"
-   file: "artifact.txt"
-   skip_cleanup: true
-   on:
-      tags: true
-
-notifications:
-   email:
-      - kaplan2539@gmail.com
-   on_success: change
-   on_failure: always
+  provider: releases
+  api_key:
+    secure: hcNm8lVfoi9t1UjZsPeBVqO6ckfAhWQkpGKRj/K0VepFvODBpgVBdHwpLdkd9GL7VMxW4vAAz2olksmXj6m0lyCIgj0/+UR59pjoS5lZRvxuQ34dQnx5YXvgkkA4nSlyoi716C+UR0guEmK8Qecu3FT8Vt1Z/8DwXAzsb3EOj+g=
+  file: artifact.txt
+  on:
+    repo: kaplan2539/Cubietruck-Ubuntu
