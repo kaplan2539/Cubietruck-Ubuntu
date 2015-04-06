@@ -12,6 +12,10 @@ notifications:
   on_success: change
   on_failure: always
 
+before_deploy:
+  - pwd
+  - ls -ltra
+
 deploy:
   provider: releases
   api_key:
