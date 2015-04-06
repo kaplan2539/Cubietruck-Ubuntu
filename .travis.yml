@@ -24,3 +24,5 @@ deploy:
   file: artifact.txt
   on:
     repo: kaplan2539/Cubietruck-Ubuntu
+    tags: true
+    all_branches: true
